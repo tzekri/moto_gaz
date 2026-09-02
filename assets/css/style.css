@@ -4,10 +4,16 @@
 
 :root {
   --bg:            #0e0f12;
-  --bg-2:          #16181d;
-  --bg-3:          #1e2128;
-  --surface:       #14161b;
-  --border:        #2a2e37;
+  --bg-2:          #191c22;
+  --bg-3:          #242832;
+  --surface:       #181b21;
+  --border:        #333844;
+  --light:         #f4f5f7;
+  --light-2:       #ffffff;
+  --light-ink:     #16181b;
+  --light-ink-2:   #55606e;
+  --light-border:  #e3e6ea;
+  --accent-ink-light: #c20e26;
   --text:          #f2f3f5;
   --text-2:        #a6acb8;
   --text-3:        #71767f;
@@ -65,6 +71,38 @@ p { margin: 0 0 1rem; }
 .section { padding: clamp(48px, 8vw, 96px) 0; }
 .section--tight { padding: clamp(32px, 5vw, 56px) 0; }
 .section--alt { background: var(--bg-2); }
+
+/* Sections claires — pour éclaircir la page */
+.section--light { background: var(--light); color: var(--light-ink-2); }
+.section--light h1, .section--light h2, .section--light h3, .section--light h4 { color: var(--light-ink); }
+.section--light .eyebrow { color: var(--accent-ink-light); }
+.section--light .section__head p { color: var(--light-ink-2); }
+.section--light .card {
+  background: var(--light-2);
+  border-color: var(--light-border);
+  box-shadow: 0 12px 32px -20px rgba(16, 20, 30, .35);
+}
+.section--light .card p { color: var(--light-ink-2); }
+.section--light .card__icon { background: rgba(225, 6, 0, .10); color: var(--accent-ink-light); }
+.section--light .tick-list li { color: #414a56; }
+.section--light .split__media { border-color: var(--light-border); background: #e9ebef; }
+.section--light .btn--ghost { --btn-fg: var(--light-ink); border-color: #cfd4da; }
+.section--light .btn--ghost:hover { background: #e7eaee; border-color: #b7bec7; }
+/* Cartes & filtres du catalogue en clair */
+.section--light .moto-card { background: var(--light-2); border-color: var(--light-border); }
+.section--light .moto-card:hover { border-color: #c4cad2; }
+.section--light .moto-card__media { background: linear-gradient(135deg, #eef0f3, #e2e5ea); }
+.section--light .moto-card__marque { color: #8a919c; }
+.section--light .moto-card__modele { color: var(--light-ink); }
+.section--light .chip { background: #eef0f3; border-color: #e0e3e8; color: #55606e; }
+.section--light .price { color: var(--light-ink); }
+.section--light .price small { color: #98a0ab; }
+.section--light .filter-btn { background: var(--light-2); border-color: #d7dbe0; color: #55606e; }
+.section--light .filter-btn:hover { color: var(--light-ink); border-color: #b7bec7; }
+.section--light .filter-btn.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.section--light .filters__count { color: #98a0ab; }
+.section--light .empty { color: #98a0ab; border-color: #d0d5db; }
+.section--light .empty a { color: var(--accent-ink-light); }
 
 .section__head {
   max-width: 640px;
@@ -212,7 +250,7 @@ p { margin: 0 0 1rem; }
   padding: clamp(64px, 12vw, 130px) 0 clamp(56px, 9vw, 110px);
   overflow: hidden;
   background:
-    radial-gradient(900px 500px at 78% -10%, rgba(225, 6, 0, .22), transparent 60%),
+    radial-gradient(760px 460px at 50% -15%, rgba(225, 6, 0, .26), transparent 65%),
     linear-gradient(180deg, #0e0f12 0%, #141922 100%);
   border-bottom: 1px solid var(--border);
 }
@@ -268,38 +306,27 @@ p { margin: 0 0 1rem; }
 }
 .hero__stats div span { font-size: .9rem; color: var(--text-3); }
 
-.hero__media {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  background: var(--bg-3);
-  aspect-ratio: 4 / 3;
+/* Hero centré, sans visuel */
+.hero--center { text-align: center; }
+.hero__inner {
+  max-width: 780px;
+  margin-inline: auto;
 }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; }
-.hero__media img[src$=".png"] {
-  object-fit: contain;
-  padding: 22px;
-  background:
-    radial-gradient(60% 60% at 50% 45%, rgba(225, 6, 0, .18), transparent 70%),
-    linear-gradient(160deg, #1c2230, #111317);
+.hero--center .hero__kicker { margin-inline: auto; }
+.hero--center h1 { margin-bottom: .35em; }
+.hero--center p.lead {
+  margin-inline: auto;
+  max-width: 54ch;
 }
-.hero__badge {
-  position: absolute;
-  left: 16px; bottom: 16px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  background: rgba(14, 15, 18, .82);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border);
-  font-size: .85rem;
+.hero--center .hero__actions { justify-content: center; }
+.hero--center .hero__stats {
+  justify-content: center;
+  gap: 20px 44px;
 }
-.hero__badge b { color: var(--accent-2); }
+.hero--center .hero__stats div { text-align: center; }
 
 @media (max-width: 900px) {
   .hero__grid { grid-template-columns: 1fr; gap: 36px; }
-  .hero__media { order: -1; aspect-ratio: 16 / 10; }
 }
 
 /* ---------- Bandeau marques ---------- */

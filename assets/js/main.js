@@ -38,16 +38,16 @@
     var svg =
       '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="550" viewBox="0 0 800 550">' +
       '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
-      '<stop offset="0" stop-color="#22262f"/><stop offset="1" stop-color="#14161b"/>' +
+      '<stop offset="0" stop-color="#eef0f3"/><stop offset="1" stop-color="#dcdfe4"/>' +
       '</linearGradient></defs>' +
       '<rect width="800" height="550" fill="url(#g)"/>' +
-      '<g fill="none" stroke="#e10600" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">' +
+      '<g fill="none" stroke="#e10600" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">' +
       '<circle cx="235" cy="370" r="88"/><circle cx="565" cy="370" r="88"/>' +
       '<path d="M235 370 L360 370 L430 285 L545 285 M565 370 L470 220 L360 220 M300 285 L360 285"/>' +
       '<path d="M470 220 q40 -35 80 -10"/></g>' +
-      '<text x="400" y="120" text-anchor="middle" fill="#a6acb8" font-family="Segoe UI,Arial,sans-serif" ' +
+      '<text x="400" y="120" text-anchor="middle" fill="#6b7280" font-family="Segoe UI,Arial,sans-serif" ' +
       'font-size="34" font-weight="700" letter-spacing="3">' + String(marque).toUpperCase() + '</text>' +
-      '<text x="400" y="165" text-anchor="middle" fill="#71767f" font-family="Segoe UI,Arial,sans-serif" ' +
+      '<text x="400" y="165" text-anchor="middle" fill="#9aa0aa" font-family="Segoe UI,Arial,sans-serif" ' +
       'font-size="22">' + String(modele) + '</text></svg>';
     return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
   }
