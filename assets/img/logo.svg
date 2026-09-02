@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Motos Gaz">
+  <!-- Emblème bouclier « GG » — recréation. Remplacez par logo.png si besoin. -->
+  <path fill="#e10600" fill-rule="evenodd" d="
+    M12 14 H52 L60 26 L68 14 H108 V60
+    Q108 96 60 116 Q12 96 12 60 Z
+    M30 30 V57 Q30 82 60 99 Q90 82 90 57 V30 H74 L66 42 H54 L46 30 Z
+  "/>
+  <!-- Barres du monogramme GG -->
+  <path fill="#e10600" d="
+    M30 52 H49 V64 H40 V58 H30 Z
+    M90 52 H71 V64 H80 V58 H90 Z
+  "/>
+  <rect x="55" y="66" width="10" height="26" fill="#e10600"/>
+</svg>

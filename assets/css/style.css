@@ -152,7 +152,8 @@ p { margin: 0 0 1rem; }
   letter-spacing: .04em;
   text-transform: uppercase;
 }
-.brand svg { width: 30px; height: 30px; flex: none; }
+.brand svg,
+.brand__logo { width: 34px; height: 34px; flex: none; }
 .brand span b { color: var(--accent); }
 
 .nav {
@@ -277,6 +278,13 @@ p { margin: 0 0 1rem; }
   aspect-ratio: 4 / 3;
 }
 .hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.hero__media img[src$=".png"] {
+  object-fit: contain;
+  padding: 22px;
+  background:
+    radial-gradient(60% 60% at 50% 45%, rgba(225, 6, 0, .18), transparent 70%),
+    linear-gradient(160deg, #1c2230, #111317);
+}
 .hero__badge {
   position: absolute;
   left: 16px; bottom: 16px;
