@@ -192,6 +192,8 @@ p { margin: 0 0 1rem; }
 }
 .brand svg,
 .brand__logo { width: 34px; height: 34px; flex: none; }
+.brand span { letter-spacing: .06em; }
+.brand__sp { display: inline-block; width: .3em; }
 .brand span b { color: var(--accent); }
 
 .nav {
@@ -305,6 +307,20 @@ p { margin: 0 0 1rem; }
   color: var(--accent);
 }
 .hero__stats div span { font-size: .9rem; color: var(--text-3); }
+
+/* Image de fond optionnelle du hero (devanture) */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .20;
+  filter: grayscale(.25) contrast(1.05);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 1; }
 
 /* Hero centré, sans visuel */
 .hero--center { text-align: center; }
@@ -765,8 +781,24 @@ p { margin: 0 0 1rem; }
   color: #9fe6c0;
   font-size: .92rem;
 }
+.shopfront {
+  margin: 26px 0 0;
+}
+.shopfront img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: block;
+}
+.shopfront figcaption {
+  margin-top: 10px;
+  font-size: .85rem;
+  color: var(--text-3);
+}
 .map-embed {
-  margin-top: 24px;
+  margin-top: 18px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);

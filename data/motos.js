@@ -23,7 +23,8 @@ window.SITE = {
   email: "contact@motosgaz.com",
   ville: "Casablanca",
   adresse: "Casablanca, Maroc",
-  adresseMapsQuery: "MOTOS GAZ Casablanca",
+  // Plus Code Google Maps du magasin (issu du lien maps.app.goo.gl ci-dessous)
+  adresseMapsQuery: "JF6F+27W Casablanca",
   mapsUrl: "https://maps.app.goo.gl/R2ATADYZjZnWiPax9",
   reseaux: {
     facebook: "https://www.facebook.com/motosgaz7/",

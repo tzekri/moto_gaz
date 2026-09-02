@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
+  <rect width="1000" height="620" fill="#101216"/>
+  <!-- bandeau enseigne -->
+  <rect x="0" y="0" width="1000" height="150" fill="#0a0b0d"/>
+  <text x="500" y="98" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-weight="800" font-size="74" letter-spacing="6">
+    <tspan fill="#f4f5f7">MOTO </tspan><tspan fill="#e10600">GAZ</tspan>
+  </text>
+  <!-- vitrine -->
+  <rect x="40" y="180" width="920" height="400" rx="6" fill="#15181e" stroke="#2b3038" stroke-width="2"/>
+  <line x1="500" y1="180" x2="500" y2="580" stroke="#2b3038" stroke-width="2"/>
+  <!-- motos stylisées -->
+  <g fill="none" stroke="#e10600" stroke-width="9" stroke-linecap="round" opacity="0.85">
+    <circle cx="250" cy="470" r="52"/><circle cx="410" cy="470" r="52"/>
+    <path d="M250 470h95l45-70h70M410 470l-70-120h-70M300 400h60"/>
+  </g>
+  <g fill="none" stroke="#5c626d" stroke-width="9" stroke-linecap="round" opacity="0.7">
+    <circle cx="610" cy="470" r="52"/><circle cx="770" cy="470" r="52"/>
+    <path d="M610 470h95l45-70h70M770 470l-70-120h-70M660 400h60"/>
+  </g>
+  <text x="500" y="612" text-anchor="middle" fill="#5c626d" font-family="Segoe UI,Arial,sans-serif" font-size="20">
+    Ajoutez votre photo : assets/img/devanture.jpg
+  </text>
+</svg>
