@@ -34,10 +34,9 @@ Mettez `prix: null` pour afficher « Prix sur demande ».
 Placez vos images dans `assets/img/` :
 
 - `assets/img/devanture.jpg` — photo de la devanture du magasin.
-  Sert de **fond du hero** (accueil) **et** de visuel sur la page Contact.
-  Absente = le hero reste sur son dégradé et Contact affiche un visuel générique.
+  Utilisée à **3 endroits** : fond du hero (accueil), section « À propos »
+  (accueil) et page Contact. Absente = dégradé / visuel générique.
 - `assets/img/hero.jpg` — grande photo d'accueil (optionnelle, ancien emplacement)
-- `assets/img/atelier.jpg` — photo section « À propos »
 - `assets/img/motos/<nom>` — une photo par modèle, le nom doit
   correspondre au champ `image` dans `data/motos.js`
 
