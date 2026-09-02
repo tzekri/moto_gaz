@@ -35,10 +35,26 @@ Placez vos images dans `assets/img/` :
 
 - `assets/img/hero.jpg` — grande photo d'accueil
 - `assets/img/atelier.jpg` — photo section « À propos »
-- `assets/img/motos/<nom>.jpg` — une photo par modèle, le nom doit
+- `assets/img/motos/<nom>` — une photo par modèle, le nom doit
   correspondre au champ `image` dans `data/motos.js`
 
 Si une image est absente, un visuel générique s'affiche automatiquement.
+
+**Photos VOGE et QJMOTOR** : les 8 modèles VOGE / QJMOTOR utilisent les
+photos officielles constructeur (fichiers `voge-*.png` et `qjmotor-*.png`),
+récupérées sur `vogemorocco.com` et `qjmotor.fr`. En tant que revendeur,
+vérifiez auprès de votre distributeur que vous pouvez les utiliser, ou
+remplacez-les par vos propres clichés (même nom de fichier).
+
+### Fiches techniques
+
+Chaque modèle VOGE / QJMOTOR a un objet `specs { }` dans `data/motos.js` :
+la liste libellé → valeur affichée sur la page du modèle. Sources :
+`vogemorocco.com` (prix Maroc TTC) et `qjmotor.fr` (specs — **prix Maroc à
+confirmer**, laissés sur « Prix sur demande » via `prix: null`).
+
+Les modèles **SYM et TVS** n'ont pas encore de photos réelles ni de `specs`
+détaillées — à compléter sur le même modèle.
 
 ## Informations reprises des réseaux (à confirmer)
 

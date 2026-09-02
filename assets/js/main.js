@@ -307,7 +307,9 @@
         return (state.marque === "all" || m.marque === state.marque) &&
                (state.categorie === "all" || m.categorie === state.categorie);
       });
-      list.sort(function (a, b) { return a.prix - b.prix; });
+      list.sort(function (a, b) {
+        return (a.prix == null ? Infinity : a.prix) - (b.prix == null ? Infinity : b.prix);
+      });
 
       grid.innerHTML = list.length
         ? list.map(motoCard).join("")
@@ -367,11 +369,18 @@
             '<table class="spec-table">' +
               row("Type", m.type) +
               row("Catégorie", m.categorie) +
-              row("Cylindrée", m.cylindree + " cm³") +
-              row("Puissance", m.puissance + " ch") +
               row("Permis requis", permisLabel(m.permis)) +
               row("Année modèle", m.annee) +
             '</table>' +
+            (m.specs
+              ? '<h2 class="spec-title">Fiche technique</h2>' +
+                '<table class="spec-table">' +
+                  Object.keys(m.specs).map(function (k) { return row(k, m.specs[k]); }).join("") +
+                '</table>'
+              : '<table class="spec-table">' +
+                  row("Cylindrée", m.cylindree + " cm³") +
+                  row("Puissance", m.puissance + " ch") +
+                '</table>') +
             '<div class="color-dots">' +
               m.couleurs.map(function (c) { return '<span>' + c + '</span>'; }).join("") +
             '</div>' +
