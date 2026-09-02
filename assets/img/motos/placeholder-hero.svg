@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c2230"/><stop offset="1" stop-color="#121317"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="750" fill="url(#g)"/>
+  <g fill="none" stroke="#ff3b1f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="300" cy="500" r="120"/><circle cx="720" cy="500" r="120"/>
+    <path d="M300 500 L470 500 L560 380 L710 380 M720 500 L600 300 L470 300 M400 380 L470 380"/>
+    <path d="M600 300 q55 -48 110 -14"/>
+  </g>
+  <text x="500" y="170" text-anchor="middle" fill="#8b93a2" font-family="Segoe UI,Arial,sans-serif" font-size="46" font-weight="700" letter-spacing="6">MOTOS GAZ</text>
+  <text x="500" y="220" text-anchor="middle" fill="#5c626d" font-family="Segoe UI,Arial,sans-serif" font-size="26">Ajoutez votre photo : assets/img/hero.jpg</text>
+</svg>

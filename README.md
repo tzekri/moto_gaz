@@ -1,0 +1,64 @@
+# Site Motos Gaz
+
+Site vitrine (statique) pour **Motos Gaz** — concessionnaire multimarque de scooters
+et motos **neufs** à Casablanca (VOGE, QJMOTOR, SYM, TVS).
+
+HTML / CSS / JavaScript purs, **aucune dépendance**, aucun build. Il suffit
+d'ouvrir les fichiers ou de les héberger tels quels.
+
+## Pages
+
+| Fichier | Rôle |
+|---|---|
+| `index.html` | Accueil : hero, marques, sélection, services, à propos, contact |
+| `catalogue.html` | Catalogue complet avec filtres marque / type |
+| `moto.html` | Fiche d'un modèle (`moto.html?id=...`) |
+| `contact.html` | Coordonnées, horaires, carte, formulaire |
+
+## Modifier le contenu
+
+Tout se pilote depuis **un seul fichier** : [`data/motos.js`](data/motos.js).
+
+- `window.SITE` — nom, téléphones, e-mail, adresse, réseaux, horaires, services.
+- `window.MARQUES` — liste des marques (bandeau + filtre).
+- `window.MOTOS` — le catalogue. Chaque moto est un objet ; ajoutez / retirez
+  des entrées dans le tableau.
+
+### ⚠️ Prix
+
+Les prix (`prix`, en dirhams) sont **indicatifs** et doivent être vérifiés.
+Mettez `prix: null` pour afficher « Prix sur demande ».
+
+### Photos
+
+Placez vos images dans `assets/img/` :
+
+- `assets/img/hero.jpg` — grande photo d'accueil
+- `assets/img/atelier.jpg` — photo section « À propos »
+- `assets/img/motos/<nom>.jpg` — une photo par modèle, le nom doit
+  correspondre au champ `image` dans `data/motos.js`
+
+Si une image est absente, un visuel générique s'affiche automatiquement.
+
+## Informations reprises des réseaux (à confirmer)
+
+Source : pages **Facebook** `facebook.com/motosgaz7` et **Instagram** `@motos_gaz`.
+
+- Nom : Motos Gaz — concessionnaire moto, Casablanca
+- Tél. : 05 22 67 24 43 / 06 60 40 02 82 (WhatsApp : 06 60 40 02 82)
+- E-mail : contact@motosgaz.com
+- Services : vente neuf, réparation/entretien, accessoires & pièces, livraison partout au Maroc
+- Marques identifiées : VOGE, QJMOTOR, SYM, TVS
+- Google Maps : https://maps.app.goo.gl/R2ATADYZjZnWiPax9
+
+À compléter / vérifier : **adresse postale exacte**, **horaires précis**,
+**liste et prix des modèles réellement en stock**.
+
+## Mettre en ligne
+
+N'importe quel hébergement statique : Netlify, Vercel, GitHub Pages, ou un
+simple dossier sur un serveur web. Aucune configuration serveur requise.
+
+Le formulaire de contact affiche un message de confirmation mais **n'envoie
+rien** pour l'instant : brancher un service (Formspree, Web3Forms, EmailJS…)
+ou un back-end selon vos besoins.
