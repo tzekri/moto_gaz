@@ -77,6 +77,9 @@ Source : pages **Facebook** `facebook.com/motosgaz7` et **Instagram** `@motos_ga
 N'importe quel hébergement statique : Netlify, Vercel, GitHub Pages, ou un
 simple dossier sur un serveur web. Aucune configuration serveur requise.
 
-Le formulaire de contact affiche un message de confirmation mais **n'envoie
-rien** pour l'instant : brancher un service (Formspree, Web3Forms, EmailJS…)
-ou un back-end selon vos besoins.
+Le formulaire de contact **ouvre WhatsApp** (`wa.me/<SITE.whatsapp>`) avec
+la demande pré-remplie (nom, téléphone, e-mail, sujet, message) ; le client
+n'a plus qu'à appuyer sur *Envoyer*. Aucun serveur ni compte tiers requis.
+Pour recevoir plutôt les demandes par e-mail, remplacer la logique
+`window.open(waUrl…)` dans `initContactForm` (`assets/js/main.js`) par un
+service type Formspree / Web3Forms.

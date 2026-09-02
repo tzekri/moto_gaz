@@ -428,9 +428,36 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var val = function (id) {
+        var el = $("#" + id, form);
+        return el ? String(el.value).trim() : "";
+      };
+      var sujetEl = $("#sujet", form);
+      var sujetLabel = sujetEl && sujetEl.options[sujetEl.selectedIndex]
+        ? sujetEl.options[sujetEl.selectedIndex].text : "";
+
+      var texte =
+        "Bonjour Motos Gaz, demande depuis le site :\n" +
+        "• Nom : " + (val("nom") || "—") + "\n" +
+        "• Téléphone : " + (val("tel") || "—") + "\n" +
+        "• E-mail : " + (val("email") || "—") + "\n" +
+        "• Sujet : " + (sujetLabel || "—") + "\n\n" +
+        (val("message") || "");
+
+      var num = String(SITE.whatsapp || "").replace(/[^0-9]/g, "");
+      var waUrl = "https://wa.me/" + num + "?text=" + encodeURIComponent(texte);
+
+      window.open(waUrl, "_blank", "noopener");
+
       form.hidden = true;
       var ok = $("[data-contact-success]");
-      if (ok) { ok.style.display = "block"; ok.scrollIntoView({ behavior: "smooth", block: "center" }); }
+      if (ok) {
+        var fb = $("[data-wa-fallback]", ok);
+        if (fb) { fb.href = waUrl; }
+        ok.style.display = "block";
+        ok.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     });
   }
 

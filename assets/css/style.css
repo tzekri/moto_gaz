@@ -786,7 +786,9 @@ p { margin: 0 0 1rem; }
   border: 1px solid rgba(47, 191, 113, .4);
   color: #9fe6c0;
   font-size: .92rem;
+  line-height: 1.7;
 }
+.form-success a { color: #fff; text-decoration: underline; font-weight: 700; }
 .shopfront {
   margin: 26px 0 0;
 }
@@ -883,3 +885,4 @@ p { margin: 0 0 1rem; }
   clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 :focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+[hidden] { display: none !important; }
