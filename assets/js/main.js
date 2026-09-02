@@ -41,7 +41,7 @@
       '<stop offset="0" stop-color="#22262f"/><stop offset="1" stop-color="#14161b"/>' +
       '</linearGradient></defs>' +
       '<rect width="800" height="550" fill="url(#g)"/>' +
-      '<g fill="none" stroke="#ff3b1f" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">' +
+      '<g fill="none" stroke="#e10600" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">' +
       '<circle cx="235" cy="370" r="88"/><circle cx="565" cy="370" r="88"/>' +
       '<path d="M235 370 L360 370 L430 285 L545 285 M565 370 L470 220 L360 220 M300 285 L360 285"/>' +
       '<path d="M470 220 q40 -35 80 -10"/></g>' +

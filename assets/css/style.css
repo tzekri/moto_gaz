@@ -1,5 +1,5 @@
 /* ===========================================================================
-   VÉLOCITÉ MOTOS — feuille de style
+   MOTOS GAZ — feuille de style
    =========================================================================== */
 
 :root {
@@ -11,8 +11,8 @@
   --text:          #f2f3f5;
   --text-2:        #a6acb8;
   --text-3:        #71767f;
-  --accent:        #ff3b1f;
-  --accent-2:      #ff6a3c;
+  --accent:        #e10600;
+  --accent-2:      #ff4136;
   --accent-ink:    #ffffff;
   --ok:            #2fbf71;
   --radius:        14px;
@@ -211,7 +211,7 @@ p { margin: 0 0 1rem; }
   padding: clamp(64px, 12vw, 130px) 0 clamp(56px, 9vw, 110px);
   overflow: hidden;
   background:
-    radial-gradient(900px 500px at 78% -10%, rgba(255, 59, 31, .22), transparent 60%),
+    radial-gradient(900px 500px at 78% -10%, rgba(225, 6, 0, .22), transparent 60%),
     linear-gradient(180deg, #0e0f12 0%, #141922 100%);
   border-bottom: 1px solid var(--border);
 }
@@ -241,7 +241,7 @@ p { margin: 0 0 1rem; }
   width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(255, 59, 31, .25);
+  box-shadow: 0 0 0 4px rgba(225, 6, 0, .25);
 }
 .hero p.lead {
   font-size: 1.15rem;
@@ -330,7 +330,7 @@ p { margin: 0 0 1rem; }
 /* ---------- Grille de motos ---------- */
 .moto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 22px;
 }
 .moto-card {
@@ -538,7 +538,7 @@ p { margin: 0 0 1rem; }
 /* ---------- Services / cartes ---------- */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 20px;
 }
 .card {
@@ -552,7 +552,7 @@ p { margin: 0 0 1rem; }
   display: grid;
   place-items: center;
   border-radius: 12px;
-  background: rgba(255, 59, 31, .12);
+  background: rgba(225, 6, 0, .12);
   color: var(--accent-2);
   margin-bottom: 16px;
 }
@@ -597,7 +597,7 @@ p { margin: 0 0 1rem; }
 /* ---------- Galerie ---------- */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
   gap: 18px;
   margin-bottom: 40px;
 }
@@ -613,7 +613,7 @@ p { margin: 0 0 1rem; }
 
 .galerie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
   gap: 14px;
 }
 .galerie-item {
@@ -647,7 +647,7 @@ p { margin: 0 0 1rem; }
   text-align: center;
   padding: clamp(48px, 8vw, 88px) 20px;
   background:
-    radial-gradient(600px 300px at 50% 0%, rgba(255, 59, 31, .18), transparent 70%),
+    radial-gradient(600px 300px at 50% 0%, rgba(225, 6, 0, .18), transparent 70%),
     var(--bg-2);
   border-block: 1px solid var(--border);
 }
@@ -778,7 +778,7 @@ p { margin: 0 0 1rem; }
 .page-hero {
   padding: clamp(48px, 8vw, 88px) 0 clamp(32px, 5vw, 48px);
   background:
-    radial-gradient(700px 340px at 15% -20%, rgba(255, 59, 31, .16), transparent 65%),
+    radial-gradient(700px 340px at 15% -20%, rgba(225, 6, 0, .16), transparent 65%),
     var(--bg-2);
   border-bottom: 1px solid var(--border);
 }
