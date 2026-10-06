@@ -55,8 +55,18 @@ la liste libellé → valeur affichée sur la page du modèle. Sources :
 `vogemorocco.com` (prix Maroc TTC) et `qjmotor.fr` (specs — **prix Maroc à
 confirmer**, laissés sur « Prix sur demande » via `prix: null`).
 
-Les modèles **SYM et TVS** n'ont pas encore de photos réelles ni de `specs`
-détaillées — à compléter sur le même modèle.
+Les modèles **TVS** ont maintenant leur photo officielle (`tvs-*.webp`, source
+`tvsmotor.com/fr/ma`). Les modèles **SYM** n'ont pas encore de photo réelle
+(visuel générique) et, comme TVS, pas encore de `specs` détaillées.
+
+### Bandeau « Nos marques » (accueil)
+
+Carrousel sombre défini par `window.MARQUES_VISUELS` dans `data/motos.js` :
+une carte par marque (`nom`, `slogan`, `image`, `fond` = dégradé CSS). Le
+nombre de modèles est calculé automatiquement ; chaque carte ouvre le
+catalogue filtré sur la marque. Photos utilisées : VOGE 525 DSX, QJMOTOR
+SRK 921, SYM Cruisym (détourée depuis la photo officielle `symfrance.com`,
+modèle 400 — à remplacer par un visuel de votre stock) et TVS Apache RR 310.
 
 ## Informations reprises des réseaux (à confirmer)
 

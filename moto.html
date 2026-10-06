@@ -7,7 +7,7 @@
 <meta name="description" content="Fiche détaillée d'un scooter ou d'une moto neuve chez Motos Gaz Casablanca : caractéristiques, coloris, prix indicatif.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
@@ -16,21 +16,27 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="index.html" aria-label="Motos Gaz, accueil">
-      <img class="brand__logo" src="assets/img/logo.svg" alt="Motos Gaz" width="34" height="34">
+      <img class="brand__logo" src="assets/img/logo.svg" alt="" width="34" height="34">
       <span>MOTOS<span class="brand__sp"> </span><b>GAZ</b></span>
     </a>
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="catalogue.html">Catalogue</a>
       <a href="index.html#galerie">Galerie</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#apropos">À propos</a>
       <a href="contact.html">Contact</a>
-      <a class="btn btn--sm" data-site-href="tel" href="#">Nous appeler</a>
     </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="catalogue.html?fav=1" aria-label="Mes favoris">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="icon-btn__count" data-fav-count hidden>0</span>
+      </a>
+      <a class="btn btn--sm header-cta" data-site-href="tel" href="#">Nous appeler</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 

@@ -63,8 +63,37 @@ window.SITE = {
   ]
 };
 
-/* Marques distribuées — bandeau logos + filtre catalogue. */
+/* Marques distribuées — filtre catalogue. */
 window.MARQUES = ["VOGE", "QJMOTOR", "SYM", "TVS"];
+
+/* Bandeau « Nos marques » (accueil) : une carte par marque.
+   image : photo détourée dans assets/img/motos/ ; fond : dégradé CSS de la carte. */
+window.MARQUES_VISUELS = [
+  {
+    nom: "VOGE",
+    slogan: "Trails & roadsters",
+    image: "voge-525-dsx.png",
+    fond: "radial-gradient(440px 280px at 82% 62%, rgba(225,6,0,.38), transparent 70%), linear-gradient(120deg,#050505 0%,#1c0707 100%)"
+  },
+  {
+    nom: "QJMOTOR",
+    slogan: "Roadsters & trails",
+    image: "qjmotor-srk-921.png",
+    fond: "radial-gradient(440px 280px at 82% 62%, rgba(255,255,255,.16), transparent 70%), linear-gradient(120deg,#050505 0%,#10161f 100%)"
+  },
+  {
+    nom: "SYM",
+    slogan: "Scooters & maxi-scooters",
+    image: "sym-cruisym.png",
+    fond: "radial-gradient(440px 280px at 82% 62%, rgba(40,170,110,.30), transparent 70%), linear-gradient(120deg,#050505 0%,#07150f 100%)"
+  },
+  {
+    nom: "TVS",
+    slogan: "Sportives & scooters",
+    image: "tvs-apache-rr-310.webp",
+    fond: "radial-gradient(440px 280px at 82% 62%, rgba(40,100,255,.34), transparent 70%), linear-gradient(120deg,#050505 0%,#071230 100%)"
+  }
+];
 
 /* ---------------------------------------------------------------------------
    Galerie photos (gérée par le magasin).
@@ -455,7 +484,7 @@ window.MOTOS = [
     nouveaute: false,
     description:
       "Scooter connecté à l'esprit sportif : tableau de bord Bluetooth (appels, navigation), coffre éclairé, moteur 3 soupapes. Le préféré des jeunes citadins.",
-    image: "tvs-ntorq-125.jpg"
+    image: "tvs-ntorq-125.webp"
   },
   {
     id: "tvs-apache-rtr-160-4v",
@@ -472,7 +501,7 @@ window.MOTOS = [
     nouveaute: false,
     description:
       "Roadster sportif 160 cm³ au tempérament vif, issu de l'expérience course de TVS. Freinage à disques, modes de conduite, position engagée. Fun et abordable.",
-    image: "tvs-apache-rtr-160-4v.jpg"
+    image: "tvs-apache-rtr-160-4v.webp"
   },
   {
     id: "tvs-apache-rtr-200-4v",
@@ -489,7 +518,7 @@ window.MOTOS = [
     nouveaute: true,
     description:
       "La sportive légère de référence : 197 cm³, écran TFT connecté SmartXonnect, ABS mono-canal, embrayage anti-dribble. Vive en ville, à l'aise sur route.",
-    image: "tvs-apache-rtr-200-4v.jpg"
+    image: "tvs-apache-rtr-200-4v.webp"
   },
   {
     id: "tvs-raider-125",
@@ -506,6 +535,6 @@ window.MOTOS = [
     nouveaute: false,
     description:
       "Petite 125 au style moderne et au meilleur rendement de sa catégorie. Écran LCD (ou TFT selon finition), éclairage LED, faible consommation. Parfaite première moto.",
-    image: "tvs-raider-125.jpg"
+    image: "tvs-raider-125.webp"
   }
 ];

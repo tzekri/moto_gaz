@@ -7,7 +7,7 @@
 <meta name="description" content="Catalogue Motos Gaz : scooters et motos neufs VOGE, QJMOTOR, SYM et TVS. Filtrez par marque et par type. Livraison partout au Maroc.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
@@ -16,51 +16,111 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="index.html" aria-label="Motos Gaz, accueil">
-      <img class="brand__logo" src="assets/img/logo.svg" alt="Motos Gaz" width="34" height="34">
+      <img class="brand__logo" src="assets/img/logo.svg" alt="" width="34" height="34">
       <span>MOTOS<span class="brand__sp"> </span><b>GAZ</b></span>
     </a>
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="catalogue.html">Catalogue</a>
       <a href="index.html#galerie">Galerie</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#apropos">À propos</a>
       <a href="contact.html">Contact</a>
-      <a class="btn btn--sm" data-site-href="tel" href="#">Nous appeler</a>
     </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="catalogue.html?fav=1" aria-label="Mes favoris">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="icon-btn__count" data-fav-count hidden>0</span>
+      </a>
+      <a class="btn btn--sm header-cta" data-site-href="tel" href="#">Nous appeler</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
 
-<section class="page-hero">
+<section class="cat-hero">
   <div class="container">
-    <span class="eyebrow">Catalogue</span>
-    <h1>Scooters &amp; motos neufs</h1>
-    <p>Toute la gamme VOGE, QJMOTOR, SYM et TVS disponible chez Motos Gaz.
-       Prix neufs indicatifs — contactez-nous pour un devis, la disponibilité et la livraison partout au Maroc.</p>
+    <span class="eyebrow">Collection Motos Gaz</span>
+    <h1>Motos <em>à vendre au Maroc</em></h1>
+    <p>Scooters et motos neufs VOGE, QJMOTOR, SYM et TVS. Livraison à domicile partout au Maroc, ou retrait dans notre magasin de Casablanca.</p>
+    <div class="cat-stats" data-cat-stats></div>
   </div>
 </section>
 
-<section class="section section--light" data-catalogue>
+<div class="cat-tabs-wrap">
   <div class="container">
-    <div data-catalogue-filters></div>
-    <div style="display:flex;justify-content:flex-end;margin:-8px 0 20px">
-      <span class="filters__count" data-catalogue-count></span>
+    <div class="cat-tabs" data-cat-tabs aria-label="Catégories"></div>
+  </div>
+</div>
+
+<section class="section" data-catalogue>
+  <div class="container cat-layout">
+
+    <aside class="cat-filters" data-cat-filters aria-label="Filtres">
+      <p class="cat-filters__title">Filtres</p>
+
+      <div class="facet">
+        <div class="facet__title">Cylindrée</div>
+        <div class="facet__list" data-facet-cc></div>
+      </div>
+
+      <div class="facet">
+        <div class="facet__title">Marque</div>
+        <div class="facet__list" data-facet-marque></div>
+      </div>
+
+      <div class="facet">
+        <div class="facet__title">Prix</div>
+        <div class="price-range">
+          <input type="number" min="0" step="1000" inputmode="numeric" placeholder="Min" data-pmin aria-label="Prix minimum">
+          <span>–</span>
+          <input type="number" min="0" step="1000" inputmode="numeric" placeholder="Max" data-pmax aria-label="Prix maximum">
+          <span>MAD</span>
+        </div>
+      </div>
+
+      <button type="button" class="facet__btn facet__btn--fav" data-set="fav"></button>
+      <button type="button" class="cat-reset" data-reset hidden>Réinitialiser les filtres</button>
+    </aside>
+
+    <div class="cat-main">
+      <div class="cat-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" data-q placeholder="Rechercher une marque, un modèle…" aria-label="Rechercher">
+      </div>
+
+      <div class="cat-toolbar__row">
+        <span class="cat-count" data-catalogue-count></span>
+        <button type="button" class="cat-filters-toggle" data-filters-toggle>Filtres</button>
+        <label class="cat-sort">Trier
+          <select data-sort>
+            <option value="recent">Les plus récentes</option>
+            <option value="prix-asc">Prix : croissant</option>
+            <option value="prix-desc">Prix : décroissant</option>
+            <option value="cc-asc">Cylindrée : croissante</option>
+            <option value="cc-desc">Cylindrée : décroissante</option>
+            <option value="az">A → Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="moto-grid" data-catalogue-grid></div>
+      <nav class="pager" data-pager aria-label="Pagination"></nav>
     </div>
-    <div class="moto-grid" data-catalogue-grid></div>
+
   </div>
 </section>
 
 <section class="cta">
-  <h2>Vous ne trouvez pas votre modèle ?</h2>
-  <p>Nous pouvons commander d'autres références chez nos marques partenaires. Dites-nous ce que vous cherchez.</p>
+  <h2>Vous cherchez quelque chose de précis ?</h2>
+  <p>Nous pouvons le trouver pour vous : dites-nous le modèle, le budget et la ville de livraison.</p>
   <div class="cta__actions">
     <a class="btn" data-site-href="whatsapp" href="#">WhatsApp</a>
-    <a class="btn btn--ghost" href="contact.html">Formulaire de contact</a>
+    <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
   </div>
 </section>
 

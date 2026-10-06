@@ -7,7 +7,7 @@
 <meta name="description" content="Motos Gaz, concessionnaire multimarque à Casablanca : scooters et motos neufs VOGE, QJMOTOR, SYM et TVS. Pièces, accessoires, réparation. Livraison partout au Maroc.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
@@ -17,21 +17,27 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="index.html" aria-label="Motos Gaz, accueil">
-      <img class="brand__logo" src="assets/img/logo.svg" alt="Motos Gaz" width="34" height="34">
+      <img class="brand__logo" src="assets/img/logo.svg" alt="" width="34" height="34">
       <span>MOTOS<span class="brand__sp"> </span><b>GAZ</b></span>
     </a>
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="catalogue.html">Catalogue</a>
       <a href="index.html#galerie">Galerie</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#apropos">À propos</a>
       <a href="contact.html">Contact</a>
-      <a class="btn btn--sm" data-site-href="tel" href="#">Nous appeler</a>
     </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href="catalogue.html?fav=1" aria-label="Mes favoris">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="icon-btn__count" data-fav-count hidden>0</span>
+      </a>
+      <a class="btn btn--sm header-cta" data-site-href="tel" href="#">Nous appeler</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -42,7 +48,7 @@
   <img class="hero__bg" src="assets/img/devanture.jpg" alt="" aria-hidden="true" onerror="this.remove()">
   <div class="container hero__inner">
     <span class="hero__kicker">Casablanca · Livraison partout au Maroc</span>
-    <h1>Votre prochain deux-roues<br>commence ici</h1>
+    <h1>Votre prochain deux-roues<br><em>commence ici</em></h1>
     <p class="lead">Concessionnaire multimarque de scooters et motos <strong>neufs</strong> :
       VOGE, QJMOTOR, SYM et TVS. Vente, pièces, accessoires et atelier d'entretien.</p>
     <div class="hero__actions">
@@ -59,8 +65,21 @@
 </section>
 
 <!-- ===================== MARQUES ===================== -->
-<section class="marques">
-  <div class="container marques__inner" data-marques></div>
+<section class="brands-band" aria-label="Nos marques">
+  <div class="container brands-band__head">
+    <span class="brands-band__bar" aria-hidden="true"></span>
+    <h2 class="brands-band__title">Nos marques</h2>
+    <span class="brands-band__line" aria-hidden="true"></span>
+    <div class="brands-band__nav">
+      <button type="button" class="brands-band__btn" data-brands-prev aria-label="Marques précédentes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button type="button" class="brands-band__btn" data-brands-next aria-label="Marques suivantes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="brands-track" data-brands></div>
 </section>
 
 <!-- ===================== SÉLECTION ===================== -->
@@ -79,7 +98,7 @@
 </section>
 
 <!-- ===================== SERVICES ===================== -->
-<section class="section section--light" id="services">
+<section class="section section--alt" id="services">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow">Nos services</span>
@@ -91,7 +110,7 @@
 </section>
 
 <!-- ===================== À PROPOS ===================== -->
-<section class="section section--light" id="apropos">
+<section class="section" id="apropos">
   <div class="container split">
     <div class="split__media">
       <img src="assets/img/devanture.jpg" alt="Le magasin Motos Gaz à Casablanca"
