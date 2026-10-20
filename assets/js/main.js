@@ -1,5 +1,5 @@
 /* ===========================================================================
-   MOTOS GAZ — script principal
+   MOTO GAZ — script principal
    Dépend de data/motos.js (window.SITE, window.MOTOS, window.MARQUES)
    =========================================================================== */
 (function () {
@@ -275,7 +275,7 @@
       var num = String(SITE.whatsapp || "").replace(/[^0-9]/g, "");
       var href = n
         ? 'catalogue.html?marque=' + encodeURIComponent(b.nom)
-        : 'https://wa.me/' + num + '?text=' + encodeURIComponent('Bonjour Motos Gaz, je souhaite découvrir la gamme ' + b.nom + '.');
+        : 'https://wa.me/' + num + '?text=' + encodeURIComponent('Bonjour Moto Gaz, je souhaite découvrir la gamme ' + b.nom + '.');
       return '<a class="brand-card" href="' + href + '"' + (n ? '' : ' target="_blank" rel="noopener"') +
           (b.fond ? ' style="--card-bg:' + esc(b.fond) + '"' : '') + '>' +
         '<div class="brand-card__info">' +
@@ -356,7 +356,7 @@
           'style="border:none;overflow:hidden" scrolling="no" frameborder="0" ' +
           'allowfullscreen="true" ' +
           'allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" ' +
-          'title="Vidéo Facebook Motos Gaz"></iframe></div>';
+          'title="Vidéo Facebook Moto Gaz"></iframe></div>';
       }).join("");
     } else if (vHost) {
       var blk = vHost.closest("[data-fb-videos-block]");
@@ -693,7 +693,7 @@
 
     var nomComplet = m.marque + " " + m.modele;
     var prixTxt = formatPrix(m.prix);
-    document.title = nomComplet + " — Prix Maroc : " + prixTxt + " | " + (SITE.nom || "Motos Gaz");
+    document.title = nomComplet + " — Prix Maroc : " + prixTxt + " | " + (SITE.nom || "Moto Gaz");
     var metaDesc = $('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute("content", nomComplet + " neuve à Casablanca : " + prixTxt +
       ". Fiche technique complète, livraison partout au Maroc.");
@@ -709,7 +709,7 @@
     /* Lien WhatsApp pré-rempli */
     var num = String(SITE.whatsapp || "").replace(/[^0-9]/g, "");
     function waLink(couleur) {
-      var t = "Bonjour Motos Gaz, je suis intéressé(e) par la " + nomComplet +
+      var t = "Bonjour Moto Gaz, je suis intéressé(e) par la " + nomComplet +
         (couleur ? " en coloris " + couleur : "") +
         (m.prix != null ? " (" + prixTxt + ")" : "") + ". Est-elle disponible ? Quel délai de livraison ?";
       return "https://wa.me/" + num + "?text=" + encodeURIComponent(t);
@@ -958,7 +958,7 @@
         ? sujetEl.options[sujetEl.selectedIndex].text : "";
 
       var texte =
-        "Bonjour Motos Gaz, demande depuis le site :\n" +
+        "Bonjour Moto Gaz, demande depuis le site :\n" +
         "• Nom : " + (val("nom") || "—") + "\n" +
         "• Téléphone : " + (val("tel") || "—") + "\n" +
         "• E-mail : " + (val("email") || "—") + "\n" +

@@ -10,7 +10,7 @@
    ============================================================================ */
 
 window.SITE = {
-  nom: "MOTOS GAZ",
+  nom: "MOTO GAZ",
   slogan: "Vente de scooters & motos neufs à Casablanca",
   descriptionCourte:
     "Concessionnaire multimarque à Casablanca : scooters et motos neufs, " +

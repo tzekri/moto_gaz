@@ -1,6 +1,6 @@
-# Site Motos Gaz
+# Site Moto Gaz
 
-Site vitrine (statique) pour **Motos Gaz** — concessionnaire multimarque de scooters
+Site vitrine (statique) pour **Moto Gaz** — concessionnaire multimarque de scooters
 et motos **neufs** à Casablanca (VOGE, QJMOTOR, SYM, TVS).
 
 HTML / CSS / JavaScript purs, **aucune dépendance**, aucun build. Il suffit
@@ -73,7 +73,7 @@ modèle 400 — à remplacer par un visuel de votre stock) et TVS Apache RR 310.
 
 Source : pages **Facebook** `facebook.com/motosgaz7` et **Instagram** `@motos_gaz`.
 
-- Nom : Motos Gaz — concessionnaire moto, Casablanca
+- Nom : Moto Gaz — concessionnaire moto, Casablanca
 - Tél. : 05 22 67 24 43 / 06 60 40 02 82 (WhatsApp : 06 60 40 02 82)
 - E-mail : contact@motosgaz.com
 - Services : vente neuf, réparation/entretien, accessoires & pièces, livraison partout au Maroc
