@@ -5,6 +5,7 @@
    =========================================================================== */
 
 :root {
+  --lines: url("../img/bg-traits-rouges.jpg");
   --bg:            #ffffff;
   --bg-2:          #f5f5f5;
   --bg-3:          #ececec;
@@ -158,10 +159,8 @@ h1 em, h2 em { font-style: normal; color: var(--accent); }
   text-transform: uppercase;
   color: var(--text);
 }
-.brand svg,
-.brand__logo { width: 34px; height: 34px; flex: none; }
-.brand__sp { display: inline-block; width: .3em; }
-.brand b { color: var(--accent); }
+.brand__logo { flex: none; width: auto; height: 44px; border-radius: 10px; }
+.site-footer .brand__logo { height: 54px; }
 
 .nav {
   display: flex;
@@ -259,7 +258,8 @@ h1 em, h2 em { font-style: normal; color: var(--accent); }
   overflow: hidden;
   padding: clamp(72px, 11vw, 128px) 0 clamp(56px, 8vw, 96px);
   background:
-    radial-gradient(900px 480px at 85% -10%, rgba(225, 6, 0, .38), transparent 62%),
+    linear-gradient(rgba(0, 0, 0, .18), rgba(0, 0, 0, .32)),
+    var(--lines) center / cover no-repeat,
     linear-gradient(135deg, #000 0%, #0d0d0d 55%, #2a0707 100%);
 }
 .hero__bg {
@@ -336,7 +336,8 @@ h1 em, h2 em { font-style: normal; color: var(--accent); }
 .page-hero, .cat-hero {
   padding: clamp(44px, 6vw, 72px) 0 clamp(32px, 4vw, 48px);
   background:
-    radial-gradient(700px 320px at 90% -30%, rgba(225, 6, 0, .34), transparent 65%),
+    linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .3)),
+    var(--lines) center / cover no-repeat,
     linear-gradient(135deg, #000 0%, #0f0f0f 60%, #240606 100%);
 }
 .page-hero h1, .cat-hero h1 { margin-bottom: .3em; }
@@ -1267,7 +1268,8 @@ h1 em, h2 em { font-style: normal; color: var(--accent); }
   padding: clamp(48px, 8vw, 84px) 20px;
   text-align: center;
   background:
-    radial-gradient(600px 300px at 50% 0%, rgba(225, 6, 0, .3), transparent 70%),
+    linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .35)),
+    var(--lines) center / cover no-repeat,
     #0a0a0a;
 }
 .cta h2 { margin-bottom: .3em; }
