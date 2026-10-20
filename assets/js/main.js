@@ -6,7 +6,8 @@
   "use strict";
 
   var SITE = window.SITE || {};
-  var MOTOS = window.MOTOS || [];
+  /* Modèles marqués « masque: true » dans data/motos.js : cachés du site */
+  var MOTOS = (window.MOTOS || []).filter(function (m) { return !m.masque; });
   var MARQUES = window.MARQUES || [];
 
   /* ---------- Helpers ------------------------------------------------------ */
@@ -185,7 +186,8 @@
       if (kind === "tel2") el.href = "tel:" + (SITE.telephone2Lien || "");
       if (kind === "mail") el.href = "mailto:" + (SITE.email || "");
       if (kind === "whatsapp") {
-        el.href = "https://wa.me/" + String(SITE.whatsapp || "").replace(/[^0-9]/g, "");
+        el.href = "https://wa.me/" + String(SITE.whatsapp || "").replace(/[^0-9]/g, "") +
+          (el.getAttribute("data-wa-text") ? "?text=" + encodeURIComponent(el.getAttribute("data-wa-text")) : "");
         el.target = "_blank"; el.rel = "noopener";
       }
       if (kind === "maps") {
@@ -270,13 +272,17 @@
 
     host.innerHTML = list.map(function (b) {
       var n = MOTOS.filter(function (m) { return m.marque === b.nom; }).length;
-      return '<a class="brand-card" href="catalogue.html?marque=' + encodeURIComponent(b.nom) + '"' +
+      var num = String(SITE.whatsapp || "").replace(/[^0-9]/g, "");
+      var href = n
+        ? 'catalogue.html?marque=' + encodeURIComponent(b.nom)
+        : 'https://wa.me/' + num + '?text=' + encodeURIComponent('Bonjour Motos Gaz, je souhaite découvrir la gamme ' + b.nom + '.');
+      return '<a class="brand-card" href="' + href + '"' + (n ? '' : ' target="_blank" rel="noopener"') +
           (b.fond ? ' style="--card-bg:' + esc(b.fond) + '"' : '') + '>' +
         '<div class="brand-card__info">' +
           '<span class="brand-card__name">' + esc(b.nom) + '</span>' +
           (b.slogan ? '<span class="brand-card__slogan">' + esc(b.slogan) + '</span>' : '') +
-          '<span class="brand-card__count">' + n + ' mod&egrave;le' + (n > 1 ? 's' : '') + '</span>' +
-          '<span class="brand-card__cta">Voir la gamme ' + arrow + '</span>' +
+          '<span class="brand-card__count">' + (n ? n + ' mod&egrave;le' + (n > 1 ? 's' : '') : 'Gamme sur demande') + '</span>' +
+          '<span class="brand-card__cta">' + (n ? 'Voir la gamme ' : 'Nous contacter ') + arrow + '</span>' +
         '</div>' +
         (b.image
           ? '<img class="brand-card__img" loading="lazy" alt="' + esc(b.nom) + '" src="assets/img/motos/' + esc(b.image) + '">'
@@ -337,9 +343,9 @@
     host.innerHTML = list.slice(0, limit).map(motoCard).join("");
   }
 
-  /* ---------- Galerie (photos + vidéos Facebook) -------------------- */
+  /* ---------- Témoignages (avis clients + vidéos Facebook) -------------- */
 
-  function renderGalerie() {
+  function renderTemoignages() {
     var vHost = $("[data-fb-videos]");
     if (vHost && SITE.facebookVideos && SITE.facebookVideos.length) {
       vHost.innerHTML = SITE.facebookVideos.map(function (id) {
@@ -357,18 +363,20 @@
       if (blk) blk.remove();
     }
 
-    var gHost = $("[data-galerie]");
-    if (gHost && window.GALERIE && window.GALERIE.length) {
-      gHost.innerHTML = window.GALERIE.map(function (g) {
-        var ph = placeholder(g.legende || "Motos Gaz");
-        return '<figure class="galerie-item">' +
-          '<img loading="lazy" alt="' + esc(g.legende || "Motos Gaz") + '" ' +
-          'src="assets/img/galerie/' + esc(g.image) + '" ' +
-          "onerror=\"this.onerror=null;this.src='" + ph + "'\">" +
-          (g.legende ? '<figcaption>' + esc(g.legende) + '</figcaption>' : '') +
-          '</figure>';
-      }).join("");
-    }
+    var tHost = $("[data-temoignages]");
+    if (!tHost) return;
+    var list = window.TEMOIGNAGES || [];
+    if (!list.length) { tHost.remove(); return; }
+    tHost.innerHTML = list.map(function (t) {
+      var n = Math.max(0, Math.min(5, Math.round(t.note == null ? 5 : t.note)));
+      return '<figure class="testi-card">' +
+        '<div class="testi-stars" aria-label="' + n + ' sur 5">' + "★".repeat(n) + "☆".repeat(5 - n) + '</div>' +
+        '<blockquote>“' + esc(t.texte) + '”</blockquote>' +
+        '<figcaption><b>' + esc(t.nom) + '</b>' +
+          (t.ville ? ' · ' + esc(t.ville) : '') +
+          (t.moto ? '<span>' + esc(t.moto) + '</span>' : '') + '</figcaption>' +
+        '</figure>';
+    }).join("");
   }
 
   /* ---------- Catalogue : onglets, filtres, recherche, tri, pagination -- */
@@ -846,6 +854,80 @@
     refreshFavUI();
   }
 
+  /* ---------- Recherche (en-tête) : suggestions en direct ------------------ */
+
+  function initSiteSearch() {
+    var form = $("[data-site-search]");
+    if (!form) return;
+    var input = $("[data-site-q]", form);
+    var list = $("[data-site-suggest]", form);
+    var toggle = $("[data-search-toggle]", form);
+    var active = -1;
+    var items = [];
+
+    function close() { list.hidden = true; active = -1; input.setAttribute("aria-expanded", "false"); }
+    function closeAll() { close(); form.classList.remove("is-open"); if (toggle) toggle.setAttribute("aria-expanded", "false"); }
+
+    function find(q) {
+      var tokens = norm(q).split(/\s+/).filter(Boolean);
+      if (!tokens.length) return [];
+      return MOTOS.filter(function (m) {
+        var hay = norm([m.marque, m.modele, m.categorie, famille(m), m.type].join(" "));
+        return tokens.every(function (t) { return hay.indexOf(t) !== -1; });
+      });
+    }
+
+    function setActive(i) {
+      $all(".sug", list).forEach(function (r, k) {
+        r.classList.toggle("is-active", k === i);
+        r.setAttribute("aria-selected", k === i ? "true" : "false");
+      });
+      active = i;
+    }
+
+    function render() {
+      var q = input.value.trim();
+      if (!q) { close(); return; }
+      items = find(q);
+      list.innerHTML = items.slice(0, 5).map(function (m) {
+        return '<a class="sug" role="option" href="moto.html?id=' + encodeURIComponent(m.id) + '">' +
+          motoImg(m) +
+          '<span><span class="sug__name">' + esc(m.marque + " " + m.modele) + '</span>' +
+          '<span class="sug__meta">' + esc(famille(m) + " · " + m.cylindree + " cm³") + '</span></span>' +
+          '<span class="sug__price">' + formatPrix(m.prix) + '</span></a>';
+      }).join("") +
+        (items.length
+          ? '<a class="sug sug--all" href="catalogue.html?q=' + encodeURIComponent(q) + '">Voir les ' + items.length +
+            ' résultat' + (items.length > 1 ? "s" : "") + ' dans le catalogue →</a>'
+          : '<a class="sug sug--all" href="catalogue.html">Aucun résultat — voir tout le catalogue →</a>');
+      list.hidden = false;
+      input.setAttribute("aria-expanded", "true");
+      active = -1;
+    }
+
+    if (toggle) toggle.addEventListener("click", function () {
+      var open = form.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { input.focus(); render(); } else { close(); }
+    });
+
+    input.addEventListener("input", render);
+    input.addEventListener("focus", function () { if (input.value.trim()) render(); });
+    input.addEventListener("keydown", function (e) {
+      var rows = $all(".sug", list);
+      if (e.key === "Escape") { closeAll(); return; }
+      if (list.hidden || !rows.length) return;
+      if (e.key === "ArrowDown") { e.preventDefault(); setActive((active + 1) % rows.length); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); setActive((active - 1 + rows.length) % rows.length); }
+      else if (e.key === "Enter" && active >= 0) { e.preventDefault(); window.location.href = rows[active].getAttribute("href"); }
+    });
+    document.addEventListener("click", function (e) { if (!form.contains(e.target)) closeAll(); });
+
+    /* Pré-remplit avec la recherche en cours sur le catalogue */
+    var q0 = getParam("q");
+    if (q0) input.value = q0;
+  }
+
   /* ---------- Formulaire de contact -------------------------------- */
 
   function initContactForm() {
@@ -909,11 +991,12 @@
     renderMarques();
     renderServices();
     renderHours();
-    renderGalerie();
+    renderTemoignages();
     renderFeatured();
     renderCatalogue();
     renderDetail();
     initContactForm();
+    initSiteSearch();
     refreshFavUI();
   });
 })();

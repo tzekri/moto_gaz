@@ -22,12 +22,25 @@
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="catalogue.html">Catalogue</a>
-      <a href="index.html#galerie">Galerie</a>
+      <a href="index.html#temoignages">Témoignages</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#apropos">À propos</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
+      <form class="site-search" data-site-search role="search" action="catalogue.html" method="get" autocomplete="off">
+        <button type="button" class="icon-btn site-search__toggle" data-search-toggle aria-label="Rechercher" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <div class="site-search__box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" name="q" data-site-q placeholder="Rechercher…" aria-label="Rechercher une moto" aria-autocomplete="list" aria-controls="site-suggest">
+          <button type="submit" class="site-search__go" aria-label="Lancer la recherche">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="site-search__list" id="site-suggest" data-site-suggest role="listbox" hidden></div>
+      </form>
       <a class="icon-btn" href="catalogue.html?fav=1" aria-label="Mes favoris">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
         <span class="icon-btn__count" data-fav-count hidden>0</span>

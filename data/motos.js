@@ -34,7 +34,7 @@ window.SITE = {
     { jour: "Lundi – Samedi", h: "9 h 00 – 13 h 00 · 15 h 00 – 19 h 30" },
     { jour: "Dimanche", h: "Fermé" }
   ],
-  /* Vidéos Facebook affichées dans la galerie.
+  /* Vidéos Facebook affichées dans la section « Témoignages ».
      Mettez l'identifiant du reel/de la vidéo (le nombre dans l'URL Facebook,
      ex. facebook.com/reel/1077956424669574  ->  "1077956424669574"). */
   facebookVideos: [
@@ -96,19 +96,13 @@ window.MARQUES_VISUELS = [
 ];
 
 /* ---------------------------------------------------------------------------
-   Galerie photos (gérée par le magasin).
-   Exportez vos photos depuis Facebook / Instagram, placez-les dans
-   assets/img/galerie/ puis listez-les ici. Visuel générique si absente.
+   Témoignages clients (section « Témoignages » de l'accueil).
+   Ajoutez ici de VRAIS avis (avec l'accord du client). Format :
+     { nom: "Prénom N.", ville: "Casablanca", moto: "VOGE 300 DS",
+       note: 5, texte: "Texte du témoignage…" }
+   Tant que la liste est vide, seules les vidéos Facebook sont affichées.
    --------------------------------------------------------------------------- */
-window.GALERIE = [
-  { image: "galerie-01.jpg", legende: "Showroom Motos Gaz" },
-  { image: "galerie-02.jpg", legende: "Livraison client" },
-  { image: "galerie-03.jpg", legende: "Atelier entretien" },
-  { image: "galerie-04.jpg", legende: "Nouveautés VOGE" },
-  { image: "galerie-05.jpg", legende: "Gamme scooters SYM" },
-  { image: "galerie-06.jpg", legende: "Essai QJMOTOR" },
-  { image: "galerie-07.jpg", legende: "Équipement pilote" },
-  { image: "galerie-08.jpg", legende: "En magasin" }
+window.TEMOIGNAGES = [
 ];
 
 /* ---------------------------------------------------------------------------
@@ -117,6 +111,7 @@ window.GALERIE = [
             prix (DH — nombre, ou null pour « Prix sur demande »),
             cylindree (cc), puissance (ch), permis ("A1" ≤125 cm³ | "A"),
             annee, couleurs [ ], nouveaute (bool), description, image,
+            masque (bool, optionnel) : true = modèle caché du site (ex. photo manquante),
             specs { } : fiche technique détaillée (paires libellé → valeur,
                         affichées dans l'ordre sur la page du modèle).
    image : placez vos photos dans assets/img/motos/.
@@ -401,6 +396,7 @@ window.MOTOS = [
   /* ----------------------------- SYM ----------------------------- */
   {
     id: "sym-orbit-125",
+    masque: true, // photo manquante : supprimez cette ligne une fois la photo ajoutée
     marque: "SYM",
     modele: "Orbit III 125",
     type: "Scooter",
@@ -418,6 +414,7 @@ window.MOTOS = [
   },
   {
     id: "sym-symphony-st-125",
+    masque: true, // photo manquante : supprimez cette ligne une fois la photo ajoutée
     marque: "SYM",
     modele: "Symphony ST 125",
     type: "Scooter",
@@ -435,6 +432,7 @@ window.MOTOS = [
   },
   {
     id: "sym-jet-x-125",
+    masque: true, // photo manquante : supprimez cette ligne une fois la photo ajoutée
     marque: "SYM",
     modele: "Jet X 125",
     type: "Scooter",
@@ -452,6 +450,7 @@ window.MOTOS = [
   },
   {
     id: "sym-cruisym-300",
+    masque: true, // photo manquante : supprimez cette ligne une fois la photo ajoutée
     marque: "SYM",
     modele: "Cruisym 300",
     type: "Scooter",
