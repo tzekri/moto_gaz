@@ -22,7 +22,7 @@ window.SITE = {
   whatsapp: "+212660400282",
   email: "contact@motosgaz.com",
   ville: "Casablanca",
-  adresse: "Casablanca, Maroc",
+  adresse: "Aïn Sebaâ, Casablanca, Maroc",
   // Plus Code Google Maps du magasin (issu du lien maps.app.goo.gl ci-dessous)
   adresseMapsQuery: "JF6F+27W Casablanca",
   mapsUrl: "https://maps.app.goo.gl/R2ATADYZjZnWiPax9",

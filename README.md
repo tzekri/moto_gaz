@@ -14,6 +14,7 @@ d'ouvrir les fichiers ou de les héberger tels quels.
 | `catalogue.html` | Catalogue complet avec filtres marque / type |
 | `moto.html` | Fiche d'un modèle (`moto.html?id=...`) |
 | `contact.html` | Coordonnées, horaires, carte, formulaire |
+| `qui-sommes-nous.html` | Histoire, mission, vision, marques partenaires (logos dans `assets/img/marques/`) et **Business Club** (programme entreprises : avantages, remises, parcours, financement, SAV, engagements). Contenu issu de `MOTOS_GAZ_Business_Club.pdf`. Les pourcentages de remise n'étant pas renseignés dans le PDF, la colonne « Remise » affiche « Nous contacter ». |
 
 ## Modifier le contenu
 
